@@ -76,7 +76,7 @@ public class QuickSort {
 	}
 
 	@Test
-	public void threadpool() throws InterruptedException, ExecutionException {
+	public void threadpool() throws InterruptedException, ExecutionException {	
 		Callable<Integer> callable = new Callable<Integer>() {
 			public Integer call() throws Exception {
 				return new Random().nextInt(100);
@@ -84,7 +84,7 @@ public class QuickSort {
 		};
 		
 		FutureTask<Integer> futureTask = new FutureTask<Integer>(callable);
-		new Thread(futureTask).run();
+		new Thread(futureTask).start();
 		
 
 		ExecutorService executorService = Executors.newFixedThreadPool(4);
